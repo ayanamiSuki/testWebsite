@@ -1,24 +1,28 @@
 <template>
- <div class="page-index">
-   <el-row>
-     <el-col :span="5">
-       <emenu/>
-     </el-col>
-     <el-col :span="19">2</el-col>
-   </el-row>
-   <el-row>3</el-row>
- </div>
+  <div class="page-index">
+    <main-page v-if="islogin" />
+    <structure v-else />
+  </div>
 </template>
 
 <script>
-import Emenu from '@/components/index/menu'
+// import Emenu from "@/components/index/menu";
+import mainPage from "@/components/index/mainPage";
+import structure from "@/components/temporary/structure";
 export default {
+  layout: "blank",
   components: {
-    Emenu
+    mainPage,
+    structure
+  },
+  data() {
+    return {
+      islogin: 0
+    };
   }
-}
+};
 </script>
 
 <style lang="scss">
-@import "@/assets/css/index/index.scss"
+// @import "@/assets/css/index/index.scss";
 </style>
